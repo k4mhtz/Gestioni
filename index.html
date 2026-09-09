@@ -1,1 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page del Producto</title>
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: #f9f9f9;
+        }
 
+        h1, h2, h3 {
+            margin: 0 0 15px 0;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        /* Barra de navegación superior */
+        header {
+            background-color: #2c3e50;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav button {
+            background-color: transparent;
+            color: white;
+            border: 2px solid transparent;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav button:hover {
+            border: 2px solid #3498db;
+            background-color: #3498db;
+        }
+
+        /* Sección de Inicio (Hero Section) */
+        .inicio {
+            background: linear-gradient(135deg, #3498db, #8e44ad);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .inicio h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .inicio p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .btn-comprar {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn-comprar:hover {
+            background-color: #c0392b;
+        }
+
+        /* Sección de Explicación del Producto */
+        .producto {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .producto-imagen {
+            flex: 1;
+            background-color: #ecf0f1;
+            height: 300px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #7f8c8d;
+            font-style: italic;
+            border: 2px dashed #bdc3c7;
+        }
+
+        .producto-texto {
+            flex: 1;
+        }
+
+        .producto-texto h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+        }
+
+        .caracteristicas {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .caracteristicas li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .caracteristicas li::before {
+            content: '✓';
+            color: #27ae60;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Diseño responsivo para móviles */
+        @media (max-width: 768px) {
+            .producto {
+                flex-direction: column;
+            }
+            nav {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Parte superior con 4 botones -->
+    <header>
+        <nav>
+            <button onclick="document.getElementById('inicio').scrollIntoView({behavior: 'smooth'})">Inicio</button>
+            <button onclick="document.getElementById('producto').scrollIntoView({behavior: 'smooth'})">El Producto</button>
+            <button>Testimonios</button>
+            <button>Contacto</button>
+        </nav>
+    </header>
+
+    <!-- Sección de Inicio -->
+    <section id="inicio" class="inicio">
+        <h1>Bienvenido al Futuro</h1>
+        <p>Descubre nuestro nuevo producto diseñado para facilitar tu vida. Tecnología de punta, diseño elegante y un rendimiento sin igual, todo en un solo lugar.</p>
+        <button class="btn-comprar">Obtener ahora</button>
+    </section>
+
+    <!-- Sección de Explicación del Producto -->
+    <section id="producto" class="producto">
+        <div class="producto-imagen">
+            [Aquí va la imagen de tu producto]
+        </div>
+        <div class="producto-texto">
+            <h2>SmartWatch X-Pro</h2>
+            <p>El SmartWatch X-Pro es la herramienta definitiva para mantenerte conectado y saludable. Con un diseño ergonómico y una batería de larga duración, este reloj inteligente se adapta a cualquier estilo de vida.</p>
+            
+            <ul class="caracteristicas">
+                <li><strong>Monitoreo de salud:</strong> Controla tu ritmo cardíaco y oxígeno en sangre 24/7.</li>
+                <li><strong>Batería extendida:</strong> Hasta 14 días de uso continuo con una sola carga.</li>
+                <li><strong>Resistencia al agua:</strong> Certificación IP68, ideal para natación.</li>
+                <li><strong>Compatibilidad:</strong> Se sincroniza perfectamente con iOS y Android.</li>
+            </ul>
+        </div>
+    </section>
+
+</body>
+</html>
