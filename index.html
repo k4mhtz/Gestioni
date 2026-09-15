@@ -6,7 +6,9 @@
     <title>Landing Page del Producto</title>
 
     <style>
-        /* Estilos generales */
+        /* =========================
+           ESTILOS GENERALES
+        ========================== */
         body {
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -22,7 +24,9 @@
             line-height: 1.6;
         }
 
-        /* Barra de navegación */
+        /* =========================
+           BARRA DE NAVEGACIÓN
+        ========================== */
         header {
             background-color: #2c3e50;
             padding: 15px 0;
@@ -54,21 +58,22 @@
             background-color: #3498db;
         }
 
-        /* Contenedor principal de vistas */
-        .vista {
-            display: block;
-        }
-
+        /* =========================
+           OCULTAR SECCIONES
+        ========================== */
         .oculto {
             display: none !important;
         }
 
-        /* Inicio */
+        /* =========================
+           INICIO
+        ========================== */
         .inicio {
             background: linear-gradient(135deg, #3498db, #8e44ad);
             color: white;
             text-align: center;
-            padding: 100px 20px;
+            padding: 120px 20px;
+            min-height: 450px;
         }
 
         .inicio h1 {
@@ -82,6 +87,9 @@
             margin: 0 auto 30px auto;
         }
 
+        /* =========================
+           BOTONES
+        ========================== */
         .btn-comprar {
             background-color: #e74c3c;
             color: white;
@@ -91,38 +99,53 @@
             border-radius: 25px;
             cursor: pointer;
             font-weight: bold;
+            transition: 0.3s;
         }
 
         .btn-comprar:hover {
             background-color: #c0392b;
+            transform: scale(1.05);
         }
 
-        /* Producto */
+        /* =========================
+           PRODUCTO
+        ========================== */
         .producto {
             max-width: 1000px;
             margin: 60px auto;
-            padding: 20px;
+            padding: 40px;
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
             display: flex;
             align-items: center;
             gap: 40px;
         }
 
+        /* Contenedor de la imagen */
         .producto-imagen {
             flex: 1;
             background-color: #ecf0f1;
-            height: 300px;
+            height: 350px;
             border-radius: 10px;
+
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #7f8c8d;
-            font-style: italic;
-            border: 2px dashed #bdc3c7;
+
+            overflow: hidden;
         }
 
+        /* Imagen del producto */
+        .producto-imagen img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        /* Información */
         .producto-texto {
             flex: 1;
         }
@@ -132,6 +155,11 @@
             font-size: 2rem;
         }
 
+        .producto-texto p {
+            font-size: 17px;
+        }
+
+        /* Características */
         .caracteristicas {
             list-style-type: none;
             padding: 0;
@@ -139,7 +167,7 @@
         }
 
         .caracteristicas li {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             padding-left: 25px;
             position: relative;
         }
@@ -152,9 +180,35 @@
             font-weight: bold;
         }
 
-        /* Contacto exclusivo */
+        /* =========================
+           TESTIMONIOS
+        ========================== */
+        .testimonios {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 40px;
+            background-color: white;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .testimonios h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+        }
+
+        .testimonio {
+            background-color: #f4f6f7;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        /* =========================
+           CONTACTO
+        ========================== */
         .contacto {
-            display: none;
             background-color: white;
             max-width: 600px;
             margin: 60px auto;
@@ -162,10 +216,6 @@
             text-align: center;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .contacto.mostrar {
-            display: block;
         }
 
         .contacto h2 {
@@ -177,94 +227,306 @@
             margin: 15px 0;
         }
 
-        /* Responsive */
+        /* =========================
+           RESPONSIVE
+        ========================== */
         @media (max-width: 768px) {
+
             .producto {
                 flex-direction: column;
                 margin: 30px 15px;
+                padding: 25px;
+            }
+
+            .producto-imagen {
+                width: 100%;
+                height: 300px;
             }
 
             nav {
                 flex-wrap: wrap;
+                gap: 5px;
+            }
+
+            nav button {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+
+            .inicio h1 {
+                font-size: 2.2rem;
+            }
+
+            .testimonios,
+            .contacto {
+                margin: 30px 15px;
             }
         }
     </style>
 </head>
 
+
 <body>
 
-    <!-- Menú -->
+    <!-- =========================
+         MENÚ
+    ========================== -->
     <header>
         <nav>
-            <button onclick="mostrarSeccion('principal')">Inicio</button>
-            <button onclick="mostrarSeccion('principal'); document.getElementById('producto').scrollIntoView({behavior:'smooth'})">El Producto</button>
-            <button onclick="mostrarSeccion('principal')">Testimonios</button>
-            <button onclick="mostrarSeccion('contacto')">Contacto</button>
+
+            <button onclick="mostrarSeccion('inicio')">
+                Inicio
+            </button>
+
+            <button onclick="mostrarSeccion('producto')">
+                El Producto
+            </button>
+
+            <button onclick="mostrarSeccion('testimonios')">
+                Testimonios
+            </button>
+
+            <button onclick="mostrarSeccion('contacto')">
+                Contacto
+            </button>
+
         </nav>
     </header>
 
-    <!-- Contenido Principal (Inicio y Producto) -->
-    <div id="vista-principal">
-        <!-- Inicio -->
-        <section id="inicio" class="inicio">
-            <h1>Bienvenido al Futuro</h1>
-            <p>
-                Descubre nuestro nuevo producto diseñado para facilitar tu vida.
-                Tecnología de punta, diseño elegante y un rendimiento sin igual,
-                todo en un solo lugar.
-            </p>
-            <button class="btn-comprar">Obtener ahora</button>
-        </section>
 
-        <!-- Producto -->
-        <section id="producto" class="producto">
-            <div class="producto-imagen">
-                [Imagen de tu producto]
-            </div>
-            <div class="producto-texto">
-                <h2>SmartWatch X-Pro</h2>
-                <p>
-                    El SmartWatch X-Pro es la herramienta definitiva para
-                    mantenerte conectado y saludable.
-                </p>
-                <ul class="caracteristicas">
-                    <li><strong>Monitoreo de salud:</strong> Control 24/7.</li>
-                    <li><strong>Batería extendida:</strong> Hasta 14 días.</li>
-                    <li><strong>Resistencia al agua:</strong> Certificación IP68.</li>
-                    <li><strong>Compatibilidad:</strong> iOS y Android.</li>
-                </ul>
-            </div>
-        </section>
-    </div>
+    <!-- =========================
+         INICIO
+    ========================== -->
+    <section id="inicio" class="inicio">
 
-    <!-- Contacto: aislado al hacer clic -->
-    <section id="contacto" class="contacto">
-        <h2>📞 Contacto</h2>
-        <p>📧 <strong>Correo:</strong> contacto@smartwatch.com</p>
-        <p>📱 <strong>Teléfono:</strong> +52 81 1234 5678</p>
-        <p>📍 <strong>Ubicación:</strong> Monterrey, Nuevo León</p>
-        <p>🕐 <strong>Horario:</strong> Lunes a viernes de 9:00 AM a 6:00 PM</p>
-        <p>💬 Si tienes alguna pregunta sobre nuestro SmartWatch X-Pro, no dudes en contactarnos.</p>
-        <br>
-        <button class="btn-comprar" style="font-size: 1rem; padding: 10px 20px;" onclick="mostrarSeccion('principal')">← Volver al sitio</button>
+        <h1>Bienvenido al Futuro</h1>
+
+        <p>
+            Descubre nuestro nuevo producto diseñado para facilitar tu vida.
+            Tecnología de punta, diseño elegante y un rendimiento sin igual,
+            todo en un solo lugar.
+        </p>
+
+        <button
+            class="btn-comprar"
+            onclick="mostrarSeccion('producto')">
+
+            Obtener ahora
+
+        </button>
+
     </section>
 
-    <!-- JavaScript -->
-    <script>
-        function mostrarSeccion(destino) {
-            const principal = document.getElementById('vista-principal');
-            const contacto = document.getElementById('contacto');
 
-            if (destino === 'contacto') {
-                principal.classList.add('oculto');
-                contacto.classList.add('mostrar');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                contacto.classList.remove('mostrar');
-                principal.classList.remove('oculto');
+    <!-- =========================
+         PRODUCTO
+    ========================== -->
+    <section id="producto" class="producto oculto">
+
+        <!-- IMAGEN DEL PRODUCTO -->
+        <div class="producto-imagen">
+
+            <img
+                src="smartwach.jpg"
+                alt="SmartWatch X-Pro">
+
+        </div>
+
+
+        <!-- INFORMACIÓN DEL PRODUCTO -->
+        <div class="producto-texto">
+
+            <h2>SmartWatch X-Pro</h2>
+
+            <p>
+                El SmartWatch X-Pro es la herramienta definitiva para
+                mantenerte conectado y saludable.
+            </p>
+
+            <ul class="caracteristicas">
+
+                <li>
+                    <strong>Monitoreo de salud:</strong>
+                    Control 24/7.
+                </li>
+
+                <li>
+                    <strong>Batería extendida:</strong>
+                    Hasta 14 días.
+                </li>
+
+                <li>
+                    <strong>Resistencia al agua:</strong>
+                    Certificación IP68.
+                </li>
+
+                <li>
+                    <strong>Compatibilidad:</strong>
+                    iOS y Android.
+                </li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         TESTIMONIOS
+    ========================== -->
+    <section id="testimonios" class="testimonios oculto">
+
+        <h2>⭐ Testimonios</h2>
+
+        <div class="testimonio">
+            <p>
+                "Excelente producto. La batería dura muchísimo
+                y es muy fácil de utilizar."
+            </p>
+
+            <strong>— Carlos M.</strong>
+        </div>
+
+
+        <div class="testimonio">
+            <p>
+                "Me encantó el diseño y las funciones para
+                monitorear mi actividad física."
+            </p>
+
+            <strong>— Andrea R.</strong>
+        </div>
+
+
+        <div class="testimonio">
+            <p>
+                "Muy buena relación calidad-precio.
+                Lo recomiendo totalmente."
+            </p>
+
+            <strong>— Luis G.</strong>
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACTO
+    ========================== -->
+    <section id="contacto" class="contacto oculto">
+
+        <h2>📞 Contacto</h2>
+
+        <p>
+            📧 <strong>Correo:</strong>
+            contacto@smartwatch.com
+        </p>
+
+        <p>
+            📱 <strong>Teléfono:</strong>
+            +52 81 1234 5678
+        </p>
+
+        <p>
+            📍 <strong>Ubicación:</strong>
+            Monterrey, Nuevo León
+        </p>
+
+        <p>
+            🕐 <strong>Horario:</strong>
+            Lunes a viernes de 9:00 AM a 6:00 PM
+        </p>
+
+        <p>
+            💬 Si tienes alguna pregunta sobre nuestro
+            SmartWatch X-Pro, no dudes en contactarnos.
+        </p>
+
+        <br>
+
+        <button
+            class="btn-comprar"
+            style="font-size: 1rem; padding: 10px 20px;"
+            onclick="mostrarSeccion('inicio')">
+
+            ← Volver al inicio
+
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+    <script>
+
+        function mostrarSeccion(destino) {
+
+            // Obtener todas las secciones
+            const inicio =
+                document.getElementById('inicio');
+
+            const producto =
+                document.getElementById('producto');
+
+            const testimonios =
+                document.getElementById('testimonios');
+
+            const contacto =
+                document.getElementById('contacto');
+
+
+            // Ocultar todas
+            inicio.classList.add('oculto');
+            producto.classList.add('oculto');
+            testimonios.classList.add('oculto');
+            contacto.classList.add('oculto');
+
+
+            // Mostrar Inicio
+            if (destino === 'inicio') {
+
+                inicio.classList.remove('oculto');
+
             }
+
+
+            // Mostrar Producto
+            else if (destino === 'producto') {
+
+                producto.classList.remove('oculto');
+
+            }
+
+
+            // Mostrar Testimonios
+            else if (destino === 'testimonios') {
+
+                testimonios.classList.remove('oculto');
+
+            }
+
+
+            // Mostrar Contacto
+            else if (destino === 'contacto') {
+
+                contacto.classList.remove('oculto');
+
+            }
+
+
+            // Regresar arriba
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
         }
+
     </script>
+
 
 </body>
 </html>
