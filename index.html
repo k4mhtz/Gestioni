@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page del Producto</title>
+
     <style>
         /* Estilos generales */
         body {
@@ -21,7 +22,7 @@
             line-height: 1.6;
         }
 
-        /* Barra de navegación superior */
+        /* Barra de navegación */
         header {
             background-color: #2c3e50;
             padding: 15px 0;
@@ -53,7 +54,16 @@
             background-color: #3498db;
         }
 
-        /* Sección de Inicio (Hero Section) */
+        /* Contenedor principal de vistas */
+        .vista {
+            display: block;
+        }
+
+        .oculto {
+            display: none !important;
+        }
+
+        /* Inicio */
         .inicio {
             background: linear-gradient(135deg, #3498db, #8e44ad);
             color: white;
@@ -81,14 +91,13 @@
             border-radius: 25px;
             cursor: pointer;
             font-weight: bold;
-            transition: background-color 0.3s;
         }
 
         .btn-comprar:hover {
             background-color: #c0392b;
         }
 
-        /* Sección de Explicación del Producto */
+        /* Producto */
         .producto {
             max-width: 1000px;
             margin: 60px auto;
@@ -143,53 +152,119 @@
             font-weight: bold;
         }
 
-        /* Diseño responsivo para móviles */
+        /* Contacto exclusivo */
+        .contacto {
+            display: none;
+            background-color: white;
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 40px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .contacto.mostrar {
+            display: block;
+        }
+
+        .contacto h2 {
+            color: #2c3e50;
+        }
+
+        .contacto p {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
             .producto {
                 flex-direction: column;
+                margin: 30px 15px;
             }
+
             nav {
                 flex-wrap: wrap;
             }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- Parte superior con 4 botones -->
+    <!-- Menú -->
     <header>
         <nav>
-            <button onclick="document.getElementById('inicio').scrollIntoView({behavior: 'smooth'})">Inicio</button>
-            <button onclick="document.getElementById('producto').scrollIntoView({behavior: 'smooth'})">El Producto</button>
-            <button>Testimonios</button>
-            <button>Contacto</button>
+            <button onclick="mostrarSeccion('principal')">Inicio</button>
+            <button onclick="mostrarSeccion('principal'); document.getElementById('producto').scrollIntoView({behavior:'smooth'})">El Producto</button>
+            <button onclick="mostrarSeccion('principal')">Testimonios</button>
+            <button onclick="mostrarSeccion('contacto')">Contacto</button>
         </nav>
     </header>
 
-    <!-- Sección de Inicio -->
-    <section id="inicio" class="inicio">
-        <h1>Bienvenido al Futuro</h1>
-        <p>Descubre nuestro nuevo producto diseñado para facilitar tu vida. Tecnología de punta, diseño elegante y un rendimiento sin igual, todo en un solo lugar.</p>
-        <button class="btn-comprar">Obtener ahora</button>
+    <!-- Contenido Principal (Inicio y Producto) -->
+    <div id="vista-principal">
+        <!-- Inicio -->
+        <section id="inicio" class="inicio">
+            <h1>Bienvenido al Futuro</h1>
+            <p>
+                Descubre nuestro nuevo producto diseñado para facilitar tu vida.
+                Tecnología de punta, diseño elegante y un rendimiento sin igual,
+                todo en un solo lugar.
+            </p>
+            <button class="btn-comprar">Obtener ahora</button>
+        </section>
+
+        <!-- Producto -->
+        <section id="producto" class="producto">
+            <div class="producto-imagen">
+                [Imagen de tu producto]
+            </div>
+            <div class="producto-texto">
+                <h2>SmartWatch X-Pro</h2>
+                <p>
+                    El SmartWatch X-Pro es la herramienta definitiva para
+                    mantenerte conectado y saludable.
+                </p>
+                <ul class="caracteristicas">
+                    <li><strong>Monitoreo de salud:</strong> Control 24/7.</li>
+                    <li><strong>Batería extendida:</strong> Hasta 14 días.</li>
+                    <li><strong>Resistencia al agua:</strong> Certificación IP68.</li>
+                    <li><strong>Compatibilidad:</strong> iOS y Android.</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contacto: aislado al hacer clic -->
+    <section id="contacto" class="contacto">
+        <h2>📞 Contacto</h2>
+        <p>📧 <strong>Correo:</strong> contacto@smartwatch.com</p>
+        <p>📱 <strong>Teléfono:</strong> +52 81 1234 5678</p>
+        <p>📍 <strong>Ubicación:</strong> Monterrey, Nuevo León</p>
+        <p>🕐 <strong>Horario:</strong> Lunes a viernes de 9:00 AM a 6:00 PM</p>
+        <p>💬 Si tienes alguna pregunta sobre nuestro SmartWatch X-Pro, no dudes en contactarnos.</p>
+        <br>
+        <button class="btn-comprar" style="font-size: 1rem; padding: 10px 20px;" onclick="mostrarSeccion('principal')">← Volver al sitio</button>
     </section>
 
-    <!-- Sección de Explicación del Producto -->
-    <section id="producto" class="producto">
-        <div class="producto-imagen">
-            [Imagen de tu producto]
-        </div>
-        <div class="producto-texto">
-            <h2>SmartWatch X-Pro</h2>
-            <p>El SmartWatch X-Pro es la herramienta definitiva para mantenerte conectado y saludable. Con un diseño ergonómico y una batería de larga duración, este reloj inteligente se adapta a cualquier estilo de vida.</p>
-            
-            <ul class="caracteristicas">
-                <li><strong>Monitoreo de salud:</strong> Controla tu ritmo cardíaco y oxígeno en sangre 24/7.</li>
-                <li><strong>Batería extendida:</strong> Hasta 14 días de uso continuo con una sola carga.</li>
-                <li><strong>Resistencia al agua:</strong> Certificación IP68, ideal para natación.</li>
-                <li><strong>Compatibilidad:</strong> Se sincroniza perfectamente con iOS y Android.</li>
-            </ul>
-        </div>
-    </section>
+    <!-- JavaScript -->
+    <script>
+        function mostrarSeccion(destino) {
+            const principal = document.getElementById('vista-principal');
+            const contacto = document.getElementById('contacto');
+
+            if (destino === 'contacto') {
+                principal.classList.add('oculto');
+                contacto.classList.add('mostrar');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                contacto.classList.remove('mostrar');
+                principal.classList.remove('oculto');
+            }
+        }
+    </script>
 
 </body>
 </html>
