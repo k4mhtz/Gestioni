@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page - Inicio</title>
+    <style>
+        body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; background-color: #f9f9f9; scroll-behavior: smooth; }
+        header { background-color: #2c3e50; padding: 15px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        nav { display: flex; justify-content: center; gap: 20px; }
+        nav a { color: white; text-decoration: none; padding: 10px 20px; font-size: 16px; border-radius: 5px; transition: 0.3s; }
+        nav a:hover { background-color: #3498db; }
+        .inicio { background: linear-gradient(135deg, #3498db, #8e44ad); color: white; text-align: center; padding: 120px 20px; min-height: 450px; }
+        .inicio h1 { font-size: 3rem; margin-bottom: 20px; }
+        .inicio p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px auto; }
+        .nutricion-inicio { max-width: 800px; margin: 40px auto; padding: 30px; background-color: white; border-radius: 10px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .nutricion-inicio h3 { color: #2c3e50; font-size: 1.8rem; margin-bottom: 15px; }
+        .nutricion-inicio p { color: #555; font-size: 1.1rem; line-height: 1.6; }
+        .btn-comprar { background-color: #e74c3c; color: white; border: none; padding: 15px 30px; font-size: 1.2rem; border-radius: 25px; cursor: pointer; font-weight: bold; transition: 0.3s; text-decoration: none; display: inline-block; }
+        .btn-comprar:hover { background-color: #c0392b; transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="producto.html">El Producto</a>
+            <a href="testimonios.html">Testimonios</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <div id="contenedor-inicio">
+        <section id="inicio" class="inicio">
+            <h1>Bienvenido al Futuro</h1>
+            <p>Descubre nuestro nuevo producto diseñado para facilitar tu vida. Tecnología de punta, diseño elegante y un rendimiento sin igual, todo en un solo lugar.</p>
+            <a href="#nutricion" class="btn-comprar">Ver Info Nutricional ↓</a>
+        </section>
+
+        <section id="nutricion" class="nutricion-inicio">
+            <h3>🌱 Nutrición y Bienestar</h3>
+            <p>Mantener un estilo de vida saludable no solo requiere de tecnología, sino de un buen equilibrio alimenticio. Controla tus calorías diarias, mantén una hidratación adecuada y alcanza tus metas de bienestar físico de forma sencilla y natural.</p>
+        </section>
+    </div>
+
+</body>
+</html>
